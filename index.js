@@ -127,7 +127,7 @@ module.exports = {
     'text/turtle': N3Parser
   }),
   serializers: new SerializerUtil({
-    'application/ld+json': JsonLdSerializer,
+    'application/ld+json': new JsonLdSerializer({outputString: true}),
     'application/n-triples': NTriplesSerializer,
     'application/sparql-update': SparqlUpdateSerializer,
     'text/n3': N3Serializer,
