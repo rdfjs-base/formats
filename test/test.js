@@ -137,7 +137,7 @@ describe('rdf-mime-type-util', function () {
     })
 
     it('.findSerializer should find parsers for standard formats', function () {
-      assert.equal(mimeTypeUtil.serializers.findSerializer('application/ld+json'), JsonLdSerializer)
+      assert(mimeTypeUtil.serializers.findSerializer('application/ld+json') instanceof JsonLdSerializer)
       assert.equal(mimeTypeUtil.serializers.findSerializer('application/n-triples'), NTriplesSerializer)
       assert.equal(mimeTypeUtil.serializers.findSerializer('application/sparql-update'), SparqlUpdateSerializer)
       assert.equal(mimeTypeUtil.serializers.findSerializer('text/n3'), N3Serializer)
