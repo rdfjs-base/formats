@@ -1,11 +1,11 @@
 {
   "name": "rdf-mime-type-util",
-  "version": "0.1.0",
+  "version": "0.3.0-rc1",
   "description": "Parse and serialize data based on mime type",
   "main": "index.js",
   "scripts": {
     "lint": "standard",
-    "test": "./node_modules/mocha/bin/mocha ./test"
+    "test": "node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -23,17 +23,17 @@
   },
   "homepage": "https://github.com/rdf-ext/rdf-mime-type-util",
   "dependencies": {
-    "rdf-parser-jsonld": "^0.1.0",
-    "rdf-parser-microdata": "^0.1.0",
-    "rdf-parser-n3": "^0.1.0",
-    "rdf-parser-rdfxml": "^0.1.0",
-    "rdf-serializer-jsonld": "^0.1.0",
-    "rdf-serializer-n3": "^0.1.0",
-    "rdf-serializer-ntriples": "^0.1.0",
-    "rdf-serializer-sparql-update": "^0.1.0"
+    "rdf-parser-jsonld": "^0.3.0-rc1",
+    "rdf-parser-microdata": "^0.3.0-rc1",
+    "rdf-parser-n3": "^0.3.0-rc1",
+    "rdf-parser-rdfxml": "^0.3.0-rc1",
+    "rdf-serializer-jsonld": "^0.3.0-rc1",
+    "rdf-serializer-n3": "^0.3.0-rc1",
+    "rdf-serializer-ntriples": "^0.3.0-rc1",
+    "rdf-serializer-sparql-update": "^0.3.0-rc1"
   },
   "devDependencies": {
-    "mocha": "^2.2.5",
-    "rdf-ext": "^0.3.0"
+    "mocha": "^2.3.3",
+    "rdf-ext": "^0.3.0-rc1"
   }
 }
