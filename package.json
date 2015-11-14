@@ -1,6 +1,6 @@
 {
   "name": "rdf-mime-type-util",
-  "version": "0.3.0-rc1",
+  "version": "0.3.0-rc2",
   "description": "Parse and serialize data based on mime type",
   "main": "index.js",
   "scripts": {
@@ -23,11 +23,11 @@
   },
   "homepage": "https://github.com/rdf-ext/rdf-mime-type-util",
   "dependencies": {
-    "rdf-parser-jsonld": "^0.3.0-rc1",
+    "rdf-parser-jsonld": "^0.3.0-rc2",
     "rdf-parser-microdata": "^0.3.0-rc1",
     "rdf-parser-n3": "^0.3.0-rc1",
     "rdf-parser-rdfxml": "^0.3.0-rc1",
-    "rdf-serializer-jsonld": "^0.3.0-rc1",
+    "rdf-serializer-jsonld": "^0.3.0-rc2",
     "rdf-serializer-n3": "^0.3.0-rc1",
     "rdf-serializer-ntriples": "^0.3.0-rc1",
     "rdf-serializer-sparql-update": "^0.3.0-rc1"
