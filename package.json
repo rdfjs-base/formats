@@ -1,6 +1,6 @@
 {
   "name": "rdf-mime-type-util",
-  "version": "0.3.0-rc2",
+  "version": "0.3.0-rc3",
   "description": "Parse and serialize data based on mime type",
   "main": "index.js",
   "scripts": {
