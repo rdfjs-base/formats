@@ -112,10 +112,10 @@ describe('rdf-mime-type-util', function () {
         done(error)
       })
     })
-  })
 
-  it('.stream should return null if no parser was found', function () {
-    assert.equal(mimeTypeUtil.parsers.stream('image/jpeg', nTriples), null)
+    it('.stream should return null if no parser was found', function () {
+      assert.equal(mimeTypeUtil.parsers.stream('image/jpeg', nTriples), null)
+    })
   })
 
   describe('serializers', function () {
