@@ -30,7 +30,5 @@ register(rdf.serializers, 'text/turtle', N3Serializer)
 
 module.exports = {
   parsers: rdf.parsers,
-  serializers: rdf.serializers,
-  ParserUtil: rdf.Parsers,
-  SerializerUtil: rdf.Serializers
+  serializers: rdf.serializers
 }

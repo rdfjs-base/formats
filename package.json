@@ -1,7 +1,7 @@
 {
-  "name": "rdf-mime-type-util",
-  "version": "0.3.0-rc3",
-  "description": "Parse and serialize data based on mime type",
+  "name": "rdf-formats-common",
+  "version": "0.3.0-rc4",
+  "description": "Parsers and serializers for common RDF formats",
   "main": "index.js",
   "scripts": {
     "lint": "standard",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rdf-ext/rdf-mime-type-util.git"
+    "url": "https://github.com/rdf-ext/rdf-formats-common.git"
   },
   "keywords": [
     "rdf",
@@ -19,9 +19,9 @@
   "author": "Thomas Bergwinkl <bergi@axolotlfarm.org> (https://www.bergnet.org/people/bergi/card#me)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rdf-ext/rdf-mime-type-util/issues"
+    "url": "https://github.com/rdf-ext/rdf-formats-common/issues"
   },
-  "homepage": "https://github.com/rdf-ext/rdf-mime-type-util",
+  "homepage": "https://github.com/rdf-ext/rdf-formats-common",
   "dependencies": {
     "rdf-parser-jsonld": "^0.3.0-rc2",
     "rdf-parser-microdata": "^0.3.0-rc1",
