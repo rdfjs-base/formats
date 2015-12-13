@@ -1,6 +1,5 @@
 /* global describe, it */
 var assert = require('assert')
-var mimeTypeUtil = require('../')
 var rdf = require('rdf-ext')
 var JsonLdParser = require('rdf-parser-jsonld')
 var MicrodataParser = require('rdf-parser-microdata')
@@ -10,6 +9,8 @@ var JsonLdSerializer = require('rdf-serializer-jsonld')
 var N3Serializer = require('rdf-serializer-n3')
 var NTriplesSerializer = require('rdf-serializer-ntriples')
 var SparqlUpdateSerializer = require('rdf-serializer-sparql-update')
+
+var mimeTypeUtil = require('../')(rdf)
 
 describe('rdf-mime-type-util', function () {
   var graph = rdf.createGraph([rdf.createTriple(

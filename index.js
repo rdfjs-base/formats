@@ -8,27 +8,33 @@ var N3Serializer = require('rdf-serializer-n3')
 var NTriplesSerializer = require('rdf-serializer-ntriples')
 var SparqlUpdateSerializer = require('rdf-serializer-sparql-update')
 
-var register = function (handler, format, instance) {
+
+function register (handler, format, instance) {
   if (!(format in handler)) {
     handler[format] = instance
   }
 }
 
-register(rdf.parsers, 'application/ld+json', JsonLdParser)
-register(rdf.parsers, 'application/n-triples', N3Parser)
-register(rdf.parsers, 'application/rdf+xml', RdfXmlParser)
-register(rdf.parsers, 'application/xhtml+xml', MicrodataParser)
-register(rdf.parsers, 'text/html', MicrodataParser)
-register(rdf.parsers, 'text/n3', N3Parser)
-register(rdf.parsers, 'text/turtle', N3Parser)
+function mixin (object) {
+  object = object || {}
+  object.parsers = object.parsers || new rdf.Parsers()
+  object.serializers = object.serializers || new rdf.Serializers()
 
-register(rdf.serializers, 'application/ld+json', new JsonLdSerializer({outputString: true}))
-register(rdf.serializers, 'application/n-triples', NTriplesSerializer)
-register(rdf.serializers, 'application/sparql-update', SparqlUpdateSerializer)
-register(rdf.serializers, 'text/n3', N3Serializer)
-register(rdf.serializers, 'text/turtle', N3Serializer)
+  register(object.parsers, 'application/ld+json', JsonLdParser)
+  register(object.parsers, 'application/n-triples', N3Parser)
+  register(object.parsers, 'application/rdf+xml', RdfXmlParser)
+  register(object.parsers, 'application/xhtml+xml', MicrodataParser)
+  register(object.parsers, 'text/html', MicrodataParser)
+  register(object.parsers, 'text/n3', N3Parser)
+  register(object.parsers, 'text/turtle', N3Parser)
 
-module.exports = {
-  parsers: rdf.parsers,
-  serializers: rdf.serializers
+  register(object.serializers, 'application/ld+json', new JsonLdSerializer({outputString: true}))
+  register(object.serializers, 'application/n-triples', NTriplesSerializer)
+  register(object.serializers, 'application/sparql-update', SparqlUpdateSerializer)
+  register(object.serializers, 'text/n3', N3Serializer)
+  register(object.serializers, 'text/turtle', N3Serializer)
+
+  return object
 }
+
+module.exports = mixin
