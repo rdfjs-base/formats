@@ -1,6 +1,6 @@
 {
   "name": "rdf-formats-common",
-  "version": "0.3.0-rc5",
+  "version": "0.3.0",
   "description": "Parsers and serializers for common RDF formats",
   "main": "index.js",
   "scripts": {
@@ -23,17 +23,17 @@
   },
   "homepage": "https://github.com/rdf-ext/rdf-formats-common",
   "dependencies": {
-    "rdf-parser-jsonld": "^0.3.0-rc2",
-    "rdf-parser-microdata": "^0.3.0-rc1",
-    "rdf-parser-n3": "^0.3.0-rc1",
-    "rdf-parser-rdfxml": "^0.3.0-rc1",
-    "rdf-serializer-jsonld": "^0.3.0-rc2",
-    "rdf-serializer-n3": "^0.3.0-rc1",
-    "rdf-serializer-ntriples": "^0.3.0-rc1",
-    "rdf-serializer-sparql-update": "^0.3.0-rc1"
+    "rdf-parser-jsonld": "^0.3.0",
+    "rdf-parser-microdata": "^0.3.0",
+    "rdf-parser-n3": "^0.3.0",
+    "rdf-parser-rdfxml": "^0.3.0",
+    "rdf-serializer-jsonld": "^0.3.0",
+    "rdf-serializer-n3": "^0.3.0",
+    "rdf-serializer-ntriples": "^0.3.0",
+    "rdf-serializer-sparql-update": "^0.3.0"
   },
   "devDependencies": {
     "mocha": "^2.3.3",
-    "rdf-ext": "^0.3.0-rc1"
+    "rdf-ext": "^0.3.0"
   }
 }
