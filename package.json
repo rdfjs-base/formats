@@ -27,13 +27,13 @@
     "rdf-parser-microdata": "^0.3.0",
     "rdf-parser-n3": "^0.3.0",
     "rdf-parser-rdfxml": "^0.3.0",
+    "rdf-ext": "^0.3.0",
     "rdf-serializer-jsonld": "^0.3.0",
     "rdf-serializer-n3": "^0.3.0",
     "rdf-serializer-ntriples": "^0.3.0",
     "rdf-serializer-sparql-update": "^0.3.0"
   },
   "devDependencies": {
-    "mocha": "^2.3.3",
-    "rdf-ext": "^0.3.0"
+    "mocha": "^2.3.3"
   }
 }
