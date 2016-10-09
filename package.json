@@ -1,11 +1,11 @@
 {
   "name": "rdf-formats-common",
-  "version": "0.3.1",
+  "version": "0.9.0",
   "description": "Parsers and serializers for common RDF formats",
   "main": "index.js",
   "scripts": {
     "lint": "standard",
-    "test": "node_modules/.bin/mocha"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -23,17 +23,27 @@
   },
   "homepage": "https://github.com/rdf-ext/rdf-formats-common",
   "dependencies": {
-    "rdf-parser-jsonld": "^0.3.0",
-    "rdf-parser-microdata": "^0.3.0",
-    "rdf-parser-n3": "^0.3.0",
-    "rdf-parser-rdfxml": "^0.3.0",
-    "rdf-ext": "^0.3.0",
-    "rdf-serializer-jsonld": "^0.3.0",
-    "rdf-serializer-n3": "^0.3.0",
-    "rdf-serializer-ntriples": "^0.3.0",
-    "rdf-serializer-sparql-update": "^0.3.0"
+    "babelify": "^7.3.0",
+    "rdf-parser-jsonld": "git://github.com/rdf-ext/rdf-parser-jsonld.git#develop",
+    "rdf-parser-n3": "git://github.com/rdf-ext/rdf-parser-n3.git#develop",
+    "rdf-ext": "git://github.com/rdf-ext/rdf-ext.git#develop",
+    "rdf-serializer-jsonld": "git://github.com/rdf-ext/rdf-serializer-jsonld.git#develop",
+    "rdf-serializer-ntriples": "git://github.com/rdf-ext/rdf-serializer-ntriples.git#develop"
   },
   "devDependencies": {
-    "mocha": "^2.3.3"
+    "mocha": "^2.4.5",
+    "standard": "^7.0.1"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
   }
 }
