@@ -1,4 +1,5 @@
 /* global describe, it */
+
 const assert = require('assert')
 const rdf = require('rdf-ext')
 const JsonLdParser = require('rdf-parser-jsonld')
@@ -16,7 +17,7 @@ describe('rdf-formats-common', () => {
     it('should implement all required functions', () => {
       assert.equal(typeof formats.parsers.find, 'function')
       assert.equal(typeof formats.parsers.list, 'function')
-      assert.equal(typeof formats.parsers.read, 'function')
+      assert.equal(typeof formats.parsers.import, 'function')
     })
 
     it('.list should list all mime types', () => {
