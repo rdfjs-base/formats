@@ -4,8 +4,7 @@
   "description": "Parsers and serializers for common RDF formats",
   "main": "index.js",
   "scripts": {
-    "lint": "standard",
-    "test": "mocha"
+    "test": "standard && mocha"
   },
   "repository": {
     "type": "git",
@@ -13,8 +12,10 @@
   },
   "keywords": [
     "rdf",
-    "linked",
-    "data"
+    "rdfjs",
+    "format",
+    "parser",
+    "serializer"
   ],
   "author": "Thomas Bergwinkl <bergi@axolotlfarm.org> (https://www.bergnet.org/people/bergi/card#me)",
   "license": "MIT",
@@ -23,27 +24,14 @@
   },
   "homepage": "https://github.com/rdf-ext/rdf-formats-common",
   "dependencies": {
-    "babelify": "^7.3.0",
-    "rdf-parser-jsonld": "git://github.com/rdf-ext/rdf-parser-jsonld.git#develop",
-    "rdf-parser-n3": "git://github.com/rdf-ext/rdf-parser-n3.git#develop",
-    "rdf-ext": "git://github.com/rdf-ext/rdf-ext.git#develop",
-    "rdf-serializer-jsonld": "git://github.com/rdf-ext/rdf-serializer-jsonld.git#develop",
-    "rdf-serializer-ntriples": "git://github.com/rdf-ext/rdf-serializer-ntriples.git#develop"
+    "rdf-parser-jsonld": "^1.0.0",
+    "rdf-parser-n3": "^1.0.0",
+    "rdf-ext": "^1.0.0",
+    "rdf-serializer-jsonld": "^1.0.0",
+    "rdf-serializer-ntriples": "^1.0.0"
   },
   "devDependencies": {
     "mocha": "^2.4.5",
     "standard": "^7.0.1"
-  },
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015"
-          ]
-        }
-      ]
-    ]
   }
 }
