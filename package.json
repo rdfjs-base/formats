@@ -27,7 +27,7 @@
     "rdf-parser-jsonld": "^1.0.0",
     "rdf-parser-n3": "^1.0.0",
     "rdf-ext": "^1.0.0",
-    "rdf-serializer-jsonld": "^1.0.0",
+    "rdf-serializer-jsonld-ext": "^1.0.0",
     "rdf-serializer-ntriples": "^1.0.0"
   },
   "devDependencies": {
