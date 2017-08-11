@@ -1,6 +1,6 @@
 {
   "name": "rdf-formats-common",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Parsers and serializers for common RDF formats",
   "main": "index.js",
   "scripts": {
