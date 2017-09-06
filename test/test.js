@@ -21,6 +21,8 @@ describe('rdf-formats-common', () => {
       let mimeTypes = formats.parsers.list()
 
       assert.notEqual(mimeTypes.indexOf('application/ld+json'), -1)
+      assert.notEqual(mimeTypes.indexOf('application/trig'), -1)
+      assert.notEqual(mimeTypes.indexOf('application/n-quads'), -1)
       assert.notEqual(mimeTypes.indexOf('application/n-triples'), -1)
       assert.notEqual(mimeTypes.indexOf('text/n3'), -1)
       assert.notEqual(mimeTypes.indexOf('text/turtle'), -1)
@@ -28,6 +30,8 @@ describe('rdf-formats-common', () => {
 
     it('.find should find parsers for standard formats', () => {
       assert(formats.parsers.find('application/ld+json') instanceof JsonLdParser)
+      assert(formats.parsers.find('application/trig') instanceof N3Parser)
+      assert(formats.parsers.find('application/n-quads') instanceof N3Parser)
       assert(formats.parsers.find('application/n-triples') instanceof N3Parser)
       assert(formats.parsers.find('text/n3') instanceof N3Parser)
       assert(formats.parsers.find('text/turtle') instanceof N3Parser)
