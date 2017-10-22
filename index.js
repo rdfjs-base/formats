@@ -15,6 +15,7 @@ function mixin (object) {
   object.parsers = object.parsers || new rdf.Parsers()
   object.serializers = object.serializers || new rdf.Serializers()
 
+  register(object.parsers, 'application/json', new JsonLdParser({factory: rdf}))
   register(object.parsers, 'application/ld+json', new JsonLdParser({factory: rdf}))
   register(object.parsers, 'application/trig', new N3Parser({factory: rdf}))
   register(object.parsers, 'application/n-quads', new N3Parser({factory: rdf}))
@@ -22,6 +23,7 @@ function mixin (object) {
   register(object.parsers, 'text/n3', new N3Parser({factory: rdf}))
   register(object.parsers, 'text/turtle', new N3Parser({factory: rdf}))
 
+  register(object.serializers, 'application/json', new JsonLdSerializer({outputFormat: 'string'}))
   register(object.serializers, 'application/ld+json', new JsonLdSerializer({outputFormat: 'string'}))
   register(object.serializers, 'application/n-triples', new NTriplesSerializer())
   register(object.serializers, 'text/n3', new NTriplesSerializer())
