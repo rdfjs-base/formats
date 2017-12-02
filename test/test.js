@@ -20,7 +20,6 @@ describe('rdf-formats-common', () => {
     it('.list should list all mime types', () => {
       let mimeTypes = formats.parsers.list()
 
-      assert.notEqual(mimeTypes.indexOf('application/json'), -1)
       assert.notEqual(mimeTypes.indexOf('application/ld+json'), -1)
       assert.notEqual(mimeTypes.indexOf('application/trig'), -1)
       assert.notEqual(mimeTypes.indexOf('application/n-quads'), -1)
@@ -30,7 +29,6 @@ describe('rdf-formats-common', () => {
     })
 
     it('.find should find parsers for standard formats', () => {
-      assert(formats.parsers.find('application/json') instanceof JsonLdParser)
       assert(formats.parsers.find('application/ld+json') instanceof JsonLdParser)
       assert(formats.parsers.find('application/trig') instanceof N3Parser)
       assert(formats.parsers.find('application/n-quads') instanceof N3Parser)
@@ -50,7 +48,6 @@ describe('rdf-formats-common', () => {
     it('.list should list all mime types', () => {
       let mimeTypes = formats.serializers.list()
 
-      assert.notEqual(mimeTypes.indexOf('application/json'), -1)
       assert.notEqual(mimeTypes.indexOf('application/ld+json'), -1)
       assert.notEqual(mimeTypes.indexOf('application/n-triples'), -1)
       assert.notEqual(mimeTypes.indexOf('text/n3'), -1)
@@ -58,7 +55,6 @@ describe('rdf-formats-common', () => {
     })
 
     it('.find should find parsers for standard formats', () => {
-      assert(formats.serializers.find('application/json') instanceof JsonLdSerializer)
       assert(formats.serializers.find('application/ld+json') instanceof JsonLdSerializer)
       assert(formats.serializers.find('application/n-triples') instanceof NTriplesSerializer)
       assert(formats.serializers.find('text/n3') instanceof NTriplesSerializer)
