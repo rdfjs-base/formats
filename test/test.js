@@ -1,64 +1,68 @@
 /* global describe, it */
 
 const assert = require('assert')
-const rdf = require('rdf-ext')
-const JsonLdParser = require('rdf-parser-jsonld')
-const N3Parser = require('rdf-parser-n3')
-const JsonLdSerializer = require('rdf-serializer-jsonld-ext')
-const NTriplesSerializer = require('rdf-serializer-ntriples')
+const JsonLdParser = require('@rdfjs/parser-jsonld')
+const N3Parser = require('@rdfjs/parser-n3')
+const JsonLdSerializer = require('@rdfjs/serializer-jsonld')
+const NTriplesSerializer = require('@rdfjs/serializer-ntriples')
 
-var formats = require('..')(rdf)
+const formats = require('..')
 
-describe('rdf-formats-common', () => {
+function testMediaType (map, mediaType, name, implementation) {
+  describe(mediaType, () => {
+    it('should be supported', () => {
+      assert(map.has(mediaType))
+    })
+
+    it(`should use ${name}`, () => {
+      assert(map.get(mediaType) instanceof implementation)
+    })
+  })
+}
+
+describe('@rdfjs/formats-common', () => {
   describe('parsers', () => {
-    it('should implement all required functions', () => {
-      assert.equal(typeof formats.parsers.find, 'function')
-      assert.equal(typeof formats.parsers.list, 'function')
-      assert.equal(typeof formats.parsers.import, 'function')
+    it('should implement the Map interface', () => {
+      assert.strictEqual(typeof formats.parsers.get, 'function')
+      assert.strictEqual(typeof formats.parsers.has, 'function')
+      assert.strictEqual(typeof formats.parsers.set, 'function')
     })
 
-    it('.list should list all mime types', () => {
-      let mimeTypes = formats.parsers.list()
-
-      assert.notEqual(mimeTypes.indexOf('application/ld+json'), -1)
-      assert.notEqual(mimeTypes.indexOf('application/trig'), -1)
-      assert.notEqual(mimeTypes.indexOf('application/n-quads'), -1)
-      assert.notEqual(mimeTypes.indexOf('application/n-triples'), -1)
-      assert.notEqual(mimeTypes.indexOf('text/n3'), -1)
-      assert.notEqual(mimeTypes.indexOf('text/turtle'), -1)
+    it('should implement .import', () => {
+      assert.strictEqual(typeof formats.parsers.import, 'function')
     })
 
-    it('.find should find parsers for standard formats', () => {
-      assert(formats.parsers.find('application/ld+json') instanceof JsonLdParser)
-      assert(formats.parsers.find('application/trig') instanceof N3Parser)
-      assert(formats.parsers.find('application/n-quads') instanceof N3Parser)
-      assert(formats.parsers.find('application/n-triples') instanceof N3Parser)
-      assert(formats.parsers.find('text/n3') instanceof N3Parser)
-      assert(formats.parsers.find('text/turtle') instanceof N3Parser)
-    })
+    testMediaType(formats.parsers, 'application/ld+json', '@rdfjs/parser-jsonld', JsonLdParser)
+    testMediaType(formats.parsers, 'application/trig', '@rdfjs/parser-n3', N3Parser)
+    testMediaType(formats.parsers, 'application/n-quads', '@rdfjs/parser-n3', N3Parser)
+    testMediaType(formats.parsers, 'application/n-triples', '@rdfjs/parser-n3', N3Parser)
+    testMediaType(formats.parsers, 'text/n3', '@rdfjs/parser-n3', N3Parser)
+    testMediaType(formats.parsers, 'text/turtle', '@rdfjs/parser-n3', N3Parser)
   })
 
   describe('serializers', () => {
-    it('should implement all required functions', () => {
-      assert.equal(typeof formats.serializers.find, 'function')
-      assert.equal(typeof formats.serializers.import, 'function')
-      assert.equal(typeof formats.serializers.list, 'function')
+    it('should contain serializers all defined media types', () => {
+      assert(formats.serializers.has('application/ld+json'))
+      assert(formats.serializers.has('application/n-quads'))
+      assert(formats.serializers.has('application/n-triples'))
+      assert(formats.serializers.has('text/n3'))
+      assert(formats.serializers.has('text/turtle'))
     })
 
-    it('.list should list all mime types', () => {
-      let mimeTypes = formats.serializers.list()
-
-      assert.notEqual(mimeTypes.indexOf('application/ld+json'), -1)
-      assert.notEqual(mimeTypes.indexOf('application/n-triples'), -1)
-      assert.notEqual(mimeTypes.indexOf('text/n3'), -1)
-      assert.notEqual(mimeTypes.indexOf('text/turtle'), -1)
+    it('should implement the Map interface', () => {
+      assert.strictEqual(typeof formats.serializers.get, 'function')
+      assert.strictEqual(typeof formats.serializers.has, 'function')
+      assert.strictEqual(typeof formats.serializers.set, 'function')
     })
 
-    it('.find should find parsers for standard formats', () => {
-      assert(formats.serializers.find('application/ld+json') instanceof JsonLdSerializer)
-      assert(formats.serializers.find('application/n-triples') instanceof NTriplesSerializer)
-      assert(formats.serializers.find('text/n3') instanceof NTriplesSerializer)
-      assert(formats.serializers.find('text/turtle') instanceof NTriplesSerializer)
+    it('should implement .import', () => {
+      assert.strictEqual(typeof formats.serializers.import, 'function')
     })
+
+    testMediaType(formats.serializers, 'application/ld+json', '@rdfjs/serializer-jsonld', JsonLdSerializer)
+    testMediaType(formats.serializers, 'application/n-quads', '@rdfjs/serializer-ntriples', NTriplesSerializer)
+    testMediaType(formats.serializers, 'application/n-triples', '@rdfjs/serializer-ntriples', NTriplesSerializer)
+    testMediaType(formats.serializers, 'text/n3', '@rdfjs/serializer-ntriples', NTriplesSerializer)
+    testMediaType(formats.serializers, 'text/turtle', '@rdfjs/serializer-ntriples', NTriplesSerializer)
   })
 })

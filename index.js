@@ -1,33 +1,25 @@
-const rdf = require('rdf-ext')
-const JsonLdParser = require('rdf-parser-jsonld')
-const N3Parser = require('rdf-parser-n3')
-const JsonLdSerializer = require('rdf-serializer-jsonld-ext')
-const NTriplesSerializer = require('rdf-serializer-ntriples')
+const JsonLdParser = require('@rdfjs/parser-jsonld')
+const N3Parser = require('@rdfjs/parser-n3')
+const JsonLdSerializer = require('@rdfjs/serializer-jsonld')
+const NTriplesSerializer = require('@rdfjs/serializer-ntriples')
+const SinkMap = require('@rdfjs/sink-map')
 
-function register (handler, format, instance) {
-  if (!(format in handler)) {
-    handler[format] = instance
-  }
+const formats = {
+  parsers: new SinkMap(),
+  serializers: new SinkMap()
 }
 
-function mixin (object) {
-  object = object || {}
-  object.parsers = object.parsers || new rdf.Parsers()
-  object.serializers = object.serializers || new rdf.Serializers()
+formats.parsers.set('application/ld+json', new JsonLdParser())
+formats.parsers.set('application/trig', new N3Parser())
+formats.parsers.set('application/n-quads', new N3Parser())
+formats.parsers.set('application/n-triples', new N3Parser())
+formats.parsers.set('text/n3', new N3Parser())
+formats.parsers.set('text/turtle', new N3Parser())
 
-  register(object.parsers, 'application/ld+json', new JsonLdParser({factory: rdf}))
-  register(object.parsers, 'application/trig', new N3Parser({factory: rdf}))
-  register(object.parsers, 'application/n-quads', new N3Parser({factory: rdf}))
-  register(object.parsers, 'application/n-triples', new N3Parser({factory: rdf}))
-  register(object.parsers, 'text/n3', new N3Parser({factory: rdf}))
-  register(object.parsers, 'text/turtle', new N3Parser({factory: rdf}))
+formats.serializers.set('application/ld+json', new JsonLdSerializer({ encoding: 'string' }))
+formats.serializers.set('application/n-quads', new NTriplesSerializer())
+formats.serializers.set('application/n-triples', new NTriplesSerializer())
+formats.serializers.set('text/n3', new NTriplesSerializer())
+formats.serializers.set('text/turtle', new NTriplesSerializer())
 
-  register(object.serializers, 'application/ld+json', new JsonLdSerializer({outputFormat: 'string'}))
-  register(object.serializers, 'application/n-triples', new NTriplesSerializer())
-  register(object.serializers, 'text/n3', new NTriplesSerializer())
-  register(object.serializers, 'text/turtle', new NTriplesSerializer())
-
-  return object
-}
-
-module.exports = mixin
+module.exports = formats
