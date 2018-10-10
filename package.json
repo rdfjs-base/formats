@@ -26,9 +26,9 @@
   "dependencies": {
     "@rdfjs/parser-jsonld": "^1.1.1",
     "@rdfjs/parser-n3": "^1.1.2",
-    "@rdfjs/serializer-jsonld": "git+https://github.com/bergos/serializer-jsonld.git#string-encoding",
+    "@rdfjs/serializer-jsonld": "^1.2.0",
     "@rdfjs/serializer-ntriples": "^1.0.1",
-    "@rdfjs/sink-map": "git+https://github.com/rdfjs/sink-map.git#master"
+    "@rdfjs/sink-map": "^1.0.0"
   },
   "devDependencies": {
     "mocha": "^5.2.0",
