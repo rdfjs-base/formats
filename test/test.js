@@ -3,6 +3,7 @@
 const assert = require('assert')
 const JsonLdParser = require('@rdfjs/parser-jsonld')
 const N3Parser = require('@rdfjs/parser-n3')
+const { RdfXmlParser } = require('rdfxml-streaming-parser')
 const JsonLdSerializer = require('@rdfjs/serializer-jsonld')
 const NTriplesSerializer = require('@rdfjs/serializer-ntriples')
 
@@ -38,6 +39,7 @@ describe('@rdfjs/formats-common', () => {
     testMediaType(formats.parsers, 'application/n-triples', '@rdfjs/parser-n3', N3Parser)
     testMediaType(formats.parsers, 'text/n3', '@rdfjs/parser-n3', N3Parser)
     testMediaType(formats.parsers, 'text/turtle', '@rdfjs/parser-n3', N3Parser)
+    testMediaType(formats.parsers, 'application/rdf+xml', 'rdfxml-streaming-parser', RdfXmlParser)
   })
 
   describe('serializers', () => {
