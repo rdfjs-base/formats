@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rdfjs/formats-common.git"
+    "url": "https://github.com/rdfjs-base/formats-common.git"
   },
   "keywords": [
     "rdf",
@@ -20,9 +20,9 @@
   "author": "Thomas Bergwinkl <bergi@axolotlfarm.org> (https://www.bergnet.org/people/bergi/card#me)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rdfjs/formats-common/issues"
+    "url": "https://github.com/rdfjs-base/formats-common/issues"
   },
-  "homepage": "https://github.com/rdfjs/formats-common",
+  "homepage": "https://github.com/rdfjs-base/formats-common",
   "dependencies": {
     "@rdfjs/parser-jsonld": "^1.1.1",
     "@rdfjs/parser-n3": "^1.1.2",
