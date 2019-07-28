@@ -5,7 +5,7 @@
 [![npm version](https://img.shields.io/npm/v/@rdfjs/formats-common.svg)](https://www.npmjs.com/package/@rdfjs/formats-common)
 
 This module bundles parsers and serializers for the most common RDF formats.
-Instances of [SinkMap](https://github.com/rdfjs/sink-map) are used to handle different media types.
+Instances of [SinkMap](https://github.com/rdfjs-base/sink-map) are used to handle different media types.
 
 ## Usage
 
