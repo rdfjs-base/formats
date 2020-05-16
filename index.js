@@ -1,7 +1,7 @@
 import {
   jsonLdParser,
   n3Parser,
-  rdfXmlParser,
+  rdfXmlParser
 } from './parsers.js'
 import {
   jsonLdSerializer,

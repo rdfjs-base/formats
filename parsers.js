@@ -1,10 +1,10 @@
-export async function jsonLdParser() {
+export async function jsonLdParser () {
   const JsonLdParser = (await import('@rdfjs/parser-jsonld')).default
 
   return new JsonLdParser()
 }
 
-export async function n3Parser() {
+export async function n3Parser () {
   const N3Parser = (await import('@rdfjs/parser-n3')).default
   return new N3Parser()
 }
