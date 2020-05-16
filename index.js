@@ -2,12 +2,12 @@ import {
   jsonLdParser,
   n3Parser,
   rdfXmlParser,
-} from './parsers'
+} from './parsers.js'
 import {
   jsonLdSerializer,
   nTriplesSerializer
-} from './serializers'
-import SinkMap from '@rdfjs/sink-map'
+} from './serializers.js'
+import { SinkMap } from '@rdf-esm/sink-map'
 
 const parserMap = new SinkMap()
 const serializerMap = new SinkMap()
