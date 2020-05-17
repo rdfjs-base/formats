@@ -1,6 +1,6 @@
 # @rdfjs/formats-common
 
-[![Build Status](https://travis-ci.org/rdfjs/formats-common.svg?branch=master)](https://travis-ci.org/rdfjs/formats-common)
+![](https://github.com/rdf-esm/formats-common/workflows/Test/badge.svg)
 
 [![npm version](https://img.shields.io/npm/v/@rdfjs/formats-common.svg)](https://www.npmjs.com/package/@rdfjs/formats-common)
 
