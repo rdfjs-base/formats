@@ -7,6 +7,14 @@
 This module bundles parsers and serializers for the most common RDF formats.
 Instances of [SinkMap](https://github.com/rdfjs-base/sink-map) are used to handle different media types.
 
+## Fork alert :exclamation:
+
+This package is an ES Modules fork of [@rdfjs/formats-common](https://npm.im/@rdfjs/formats-common).
+
+It uses a [lazy version os `SinkMap`](https://github.com/rdf-esm/sink-map) to dynamically load the sinks.
+
+This way bundlers like webpack will create chunks for them and only load them when they are first needed.
+
 ## Usage
 
 The formats object has a `parsers` and `serializers` property.
