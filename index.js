@@ -1,27 +1,30 @@
-const JsonLdParser = require('@rdfjs/parser-jsonld')
-const N3Parser = require('@rdfjs/parser-n3')
-const { RdfXmlParser } = require('rdfxml-streaming-parser')
-const JsonLdSerializer = require('@rdfjs/serializer-jsonld')
-const NTriplesSerializer = require('@rdfjs/serializer-ntriples')
-const SinkMap = require('@rdfjs/sink-map')
+import {
+  jsonLdParser,
+  n3Parser,
+  rdfXmlParser
+} from './parsers.js'
+import {
+  jsonLdSerializer,
+  nTriplesSerializer
+} from './serializers.js'
+import { SinkMap } from '@rdf-esm/sink-map'
 
-const formats = {
-  parsers: new SinkMap(),
-  serializers: new SinkMap()
-}
+const parserMap = new SinkMap()
+const serializerMap = new SinkMap()
 
-formats.parsers.set('application/ld+json', new JsonLdParser())
-formats.parsers.set('application/trig', new N3Parser())
-formats.parsers.set('application/n-quads', new N3Parser())
-formats.parsers.set('application/n-triples', new N3Parser())
-formats.parsers.set('text/n3', new N3Parser())
-formats.parsers.set('text/turtle', new N3Parser())
-formats.parsers.set('application/rdf+xml', new RdfXmlParser())
+parserMap.set('application/ld+json', jsonLdParser)
+parserMap.set('application/trig', n3Parser)
+parserMap.set('application/n-quads', n3Parser)
+parserMap.set('application/n-triples', n3Parser)
+parserMap.set('text/n3', n3Parser)
+parserMap.set('text/turtle', n3Parser)
+parserMap.set('application/rdf+xml', rdfXmlParser)
 
-formats.serializers.set('application/ld+json', new JsonLdSerializer({ encoding: 'string' }))
-formats.serializers.set('application/n-quads', new NTriplesSerializer())
-formats.serializers.set('application/n-triples', new NTriplesSerializer())
-formats.serializers.set('text/n3', new NTriplesSerializer())
-formats.serializers.set('text/turtle', new NTriplesSerializer())
+serializerMap.set('application/ld+json', jsonLdSerializer)
+serializerMap.set('application/n-quads', nTriplesSerializer)
+serializerMap.set('application/n-triples', nTriplesSerializer)
+serializerMap.set('text/n3', nTriplesSerializer)
+serializerMap.set('text/turtle', nTriplesSerializer)
 
-module.exports = formats
+export const parsers = parserMap
+export const serializers = serializerMap
