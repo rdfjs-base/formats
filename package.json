@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/rdf-esm/formats-common",
   "dependencies": {
-    "@rdf-esm/sink-map": "github:rdf-esm/sink-map",
+    "@rdf-esm/sink-map": "^0.5.1",
     "@rdfjs/parser-jsonld": "^1.1.1",
     "@rdfjs/parser-n3": "^1.1.2",
     "@rdfjs/serializer-jsonld": "^1.2.0",
@@ -34,7 +34,7 @@
     "rdfxml-streaming-parser": "^1.2.0"
   },
   "devDependencies": {
-    "@types/rdf-js": "^2.0.0",
+    "@types/rdf-js": "^3.0.1",
     "mocha": "^5.2.0",
     "c8": "^7.1.2",
     "standard": "^14.3.4"
