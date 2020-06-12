@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.2](https://github.com/rdf-esm/formats-common/compare/v0.5.1...v0.5.2) (2020-06-12)
+
 ### [0.5.1](https://github.com/rdf-esm/formats-common/compare/v0.5.0...v0.5.1) (2020-06-12)
 
 ## [0.5.0](https://github.com/rdf-esm/formats-common/compare/v2.1.0...v0.5.0) (2020-05-17)
