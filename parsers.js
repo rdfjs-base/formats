@@ -15,8 +15,7 @@ export async function rdfXmlParser () {
   let RdfXmlParser
   if (module.default) {
     RdfXmlParser = module.default.RdfXmlParser
-  }
-  else {
+  } else {
     RdfXmlParser = module.RdfXmlParser
   }
 
