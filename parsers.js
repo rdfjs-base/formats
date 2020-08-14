@@ -10,6 +10,15 @@ export async function n3Parser () {
 }
 
 export async function rdfXmlParser () {
-  const { RdfXmlParser } = (await import('rdfxml-streaming-parser')).default
+  const module = await import('rdfxml-streaming-parser')
+
+  let RdfXmlParser
+  if (module.default) {
+    RdfXmlParser = module.default.RdfXmlParser
+  }
+  else {
+    RdfXmlParser = module.RdfXmlParser
+  }
+
   return new RdfXmlParser()
 }
