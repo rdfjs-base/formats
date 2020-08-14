@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.3](https://github.com/rdf-esm/formats-common/compare/v0.5.2...v0.5.3) (2020-08-14)
+
+
+### Bug Fixes
+
+* cater for rdf/xml parser's inconsistent export ([f571fcb](https://github.com/rdf-esm/formats-common/commit/f571fcb95c91b1d3065f6ae4310c4448be4c87a1))
+
 ### [0.5.2](https://github.com/rdf-esm/formats-common/compare/v0.5.1...v0.5.2) (2020-06-12)
 
 ### [0.5.1](https://github.com/rdf-esm/formats-common/compare/v0.5.0...v0.5.1) (2020-06-12)
