@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/rdf-esm/formats-common",
   "dependencies": {
-    "@rdf-esm/sink-map": "^0.5.3",
+    "@rdf-esm/sink-map": "^0.5.4",
     "@rdfjs/parser-jsonld": "^1.2.1",
     "@rdfjs/parser-n3": "^1.1.4",
     "@rdfjs/serializer-jsonld": "^1.2.2",
