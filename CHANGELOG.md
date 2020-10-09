@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.4](https://github.com/rdf-esm/formats-common/compare/v0.5.3...v0.5.4) (2020-10-09)
+
+
+### Bug Fixes
+
+* add CJS build as dual-package ([b0f30ef](https://github.com/rdf-esm/formats-common/commit/b0f30ef63d1832beb09bc500c92550ee35e0597f))
+
 ### [0.5.3](https://github.com/rdf-esm/formats-common/compare/v0.5.2...v0.5.3) (2020-08-14)
 
 
