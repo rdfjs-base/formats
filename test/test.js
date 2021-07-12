@@ -1,22 +1,21 @@
-/* global describe, it */
-
-const assert = require('assert')
+const { strictEqual } = require('assert')
 const JsonLdParser = require('@rdfjs/parser-jsonld')
 const N3Parser = require('@rdfjs/parser-n3')
-const { RdfXmlParser } = require('rdfxml-streaming-parser')
 const JsonLdSerializer = require('@rdfjs/serializer-jsonld')
 const NTriplesSerializer = require('@rdfjs/serializer-ntriples')
+const { describe, it } = require('mocha')
+const { RdfXmlParser } = require('rdfxml-streaming-parser')
 
 const formats = require('..')
 
 function testMediaType (map, mediaType, name, implementation) {
   describe(mediaType, () => {
     it('should be supported', () => {
-      assert(map.has(mediaType))
+      strictEqual(map.has(mediaType), true)
     })
 
     it(`should use ${name}`, () => {
-      assert(map.get(mediaType) instanceof implementation)
+      strictEqual(map.get(mediaType) instanceof implementation, true)
     })
   })
 }
@@ -24,13 +23,13 @@ function testMediaType (map, mediaType, name, implementation) {
 describe('@rdfjs/formats-common', () => {
   describe('parsers', () => {
     it('should implement the Map interface', () => {
-      assert.strictEqual(typeof formats.parsers.get, 'function')
-      assert.strictEqual(typeof formats.parsers.has, 'function')
-      assert.strictEqual(typeof formats.parsers.set, 'function')
+      strictEqual(typeof formats.parsers.get, 'function')
+      strictEqual(typeof formats.parsers.has, 'function')
+      strictEqual(typeof formats.parsers.set, 'function')
     })
 
     it('should implement .import', () => {
-      assert.strictEqual(typeof formats.parsers.import, 'function')
+      strictEqual(typeof formats.parsers.import, 'function')
     })
 
     testMediaType(formats.parsers, 'application/ld+json', '@rdfjs/parser-jsonld', JsonLdParser)
@@ -44,21 +43,21 @@ describe('@rdfjs/formats-common', () => {
 
   describe('serializers', () => {
     it('should contain serializers all defined media types', () => {
-      assert(formats.serializers.has('application/ld+json'))
-      assert(formats.serializers.has('application/n-quads'))
-      assert(formats.serializers.has('application/n-triples'))
-      assert(formats.serializers.has('text/n3'))
-      assert(formats.serializers.has('text/turtle'))
+      strictEqual(formats.serializers.has('application/ld+json'), true)
+      strictEqual(formats.serializers.has('application/n-quads'), true)
+      strictEqual(formats.serializers.has('application/n-triples'), true)
+      strictEqual(formats.serializers.has('text/n3'), true)
+      strictEqual(formats.serializers.has('text/turtle'), true)
     })
 
     it('should implement the Map interface', () => {
-      assert.strictEqual(typeof formats.serializers.get, 'function')
-      assert.strictEqual(typeof formats.serializers.has, 'function')
-      assert.strictEqual(typeof formats.serializers.set, 'function')
+      strictEqual(typeof formats.serializers.get, 'function')
+      strictEqual(typeof formats.serializers.has, 'function')
+      strictEqual(typeof formats.serializers.set, 'function')
     })
 
     it('should implement .import', () => {
-      assert.strictEqual(typeof formats.serializers.import, 'function')
+      strictEqual(typeof formats.serializers.import, 'function')
     })
 
     testMediaType(formats.serializers, 'application/ld+json', '@rdfjs/serializer-jsonld', JsonLdSerializer)
