@@ -1,9 +1,9 @@
 const JsonLdParser = require('@rdfjs/parser-jsonld')
 const N3Parser = require('@rdfjs/parser-n3')
-const { RdfXmlParser } = require('rdfxml-streaming-parser')
 const JsonLdSerializer = require('@rdfjs/serializer-jsonld')
 const NTriplesSerializer = require('@rdfjs/serializer-ntriples')
 const SinkMap = require('@rdfjs/sink-map')
+const { RdfXmlParser } = require('rdfxml-streaming-parser')
 
 const formats = {
   parsers: new SinkMap(),
