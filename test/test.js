@@ -1,12 +1,11 @@
 const { strictEqual } = require('assert')
 const JsonLdParser = require('@rdfjs/parser-jsonld')
 const N3Parser = require('@rdfjs/parser-n3')
-const JsonLdSerializer = require('@rdfjs/serializer-jsonld')
 const NTriplesSerializer = require('@rdfjs/serializer-ntriples')
 const { describe, it } = require('mocha')
-const { RdfXmlParser } = require('rdfxml-streaming-parser')
-
-const formats = require('..')
+const formats = require('../index.js')
+const JsonLdSerializer = require('../lib/CustomJsonLdSerializer')
+const RdfXmlParser = require('../lib/CustomRdfXmlParser')
 
 function testMediaType (map, mediaType, name, implementation) {
   describe(mediaType, () => {
