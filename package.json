@@ -1,6 +1,6 @@
 {
   "name": "@rdf-esm/formats-common",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "Parsers and serializers for common RDF formats",
   "main": "index.js",
   "type": "module",
