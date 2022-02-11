@@ -11,7 +11,7 @@ Instances of [SinkMap](https://github.com/rdfjs-base/sink-map) are used to handl
 
 This package is an ES Modules fork of [@rdfjs/formats-common](https://npm.im/@rdfjs/formats-common).
 
-It uses a [lazy version os `SinkMap`](https://github.com/rdf-esm/sink-map) to dynamically load the sinks.
+It uses a [lazy version of `SinkMap`](https://github.com/rdf-esm/sink-map) to dynamically load the sinks.
 
 This way bundlers like webpack will create chunks for them and only load them when they are first needed.
 
