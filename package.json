@@ -53,7 +53,7 @@
     "babel-plugin-add-import-extension": "^1.4.3",
     "mocha": "^5.2.0",
     "c8": "^7.1.2",
-    "standard": "^14.3.4"
+    "standard": "^16.0.4"
   },
   "engines": {
     "node": ">=12"
