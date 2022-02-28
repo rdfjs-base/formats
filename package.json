@@ -25,11 +25,11 @@
   },
   "homepage": "https://github.com/rdfjs-base/formats-common",
   "dependencies": {
-    "@rdfjs/parser-jsonld": "^1.2.1",
     "@rdfjs/parser-n3": "^1.1.4",
     "@rdfjs/serializer-jsonld": "^1.2.3",
     "@rdfjs/serializer-ntriples": "^1.0.3",
     "@rdfjs/sink-map": "^1.0.0",
+    "jsonld-streaming-parser": "^2.4.3",
     "rdfxml-streaming-parser": "^1.4.0"
   },
   "devDependencies": {

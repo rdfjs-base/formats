@@ -1,7 +1,7 @@
 const { strictEqual } = require('assert')
-const JsonLdParser = require('@rdfjs/parser-jsonld')
 const N3Parser = require('@rdfjs/parser-n3')
 const NTriplesSerializer = require('@rdfjs/serializer-ntriples')
+const { JsonLdParser } = require('jsonld-streaming-parser')
 const { describe, it } = require('mocha')
 const formats = require('../index.js')
 const JsonLdSerializer = require('../lib/CustomJsonLdSerializer')

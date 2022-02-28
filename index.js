@@ -1,7 +1,7 @@
-const JsonLdParser = require('@rdfjs/parser-jsonld')
 const N3Parser = require('@rdfjs/parser-n3')
 const NTriplesSerializer = require('@rdfjs/serializer-ntriples')
 const SinkMap = require('@rdfjs/sink-map')
+const { JsonLdParser } = require('jsonld-streaming-parser')
 const JsonLdSerializer = require('./lib/CustomJsonLdSerializer.js')
 const RdfXmlParser = require('./lib/CustomRdfXmlParser.js')
 
@@ -10,7 +10,9 @@ const formats = {
   serializers: new SinkMap()
 }
 
-formats.parsers.set('application/ld+json', new JsonLdParser())
+formats.parsers.set('application/ld+json', new JsonLdParser({
+  streamingProfile: true
+}))
 formats.parsers.set('application/trig', new N3Parser())
 formats.parsers.set('application/n-quads', new N3Parser())
 formats.parsers.set('application/n-triples', new N3Parser())
