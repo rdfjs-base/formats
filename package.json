@@ -2,6 +2,7 @@
   "name": "@rdfjs/formats-common",
   "version": "2.2.0",
   "description": "Parsers and serializers for common RDF formats",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "coverage": "codecov",
@@ -25,17 +26,16 @@
   },
   "homepage": "https://github.com/rdfjs-base/formats-common",
   "dependencies": {
-    "@rdfjs/parser-jsonld": "^1.2.1",
-    "@rdfjs/parser-n3": "^1.1.4",
-    "@rdfjs/serializer-jsonld": "^1.2.3",
-    "@rdfjs/serializer-ntriples": "^1.0.3",
-    "@rdfjs/sink-map": "^1.0.0",
-    "rdfxml-streaming-parser": "^1.4.0"
+    "@rdfjs/parser-jsonld": "^2.0.0",
+    "@rdfjs/parser-n3": "^2.0.0",
+    "@rdfjs/serializer-jsonld": "^2.0.0",
+    "@rdfjs/serializer-ntriples": "^2.0.0",
+    "@rdfjs/sink-map": "^2.0.0",
+    "rdfxml-streaming-parser": "^2.2.0"
   },
   "devDependencies": {
-    "c8": "^7.7.3",
-    "codecov": "^3.8.2",
-    "mocha": "^9.0.2",
+    "c8": "^7.12.0",
+    "mocha": "^10.0.0",
     "stricter-standard": "^0.2.0"
   }
 }
