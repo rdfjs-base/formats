@@ -5,9 +5,12 @@ import SinkMap from '@rdfjs/sink-map'
 import JsonLdSerializer from './lib/CustomJsonLdSerializer.js'
 import RdfXmlParser from './lib/CustomRdfXmlParser.js'
 
+export const parsers = new SinkMap()
+export const serializers = new SinkMap()
+
 const formats = {
-  parsers: new SinkMap(),
-  serializers: new SinkMap()
+  parsers,
+  serializers
 }
 
 formats.parsers.set('application/ld+json', new JsonLdParser())
