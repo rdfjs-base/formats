@@ -1,10 +1,10 @@
 import { strictEqual } from 'assert'
 import JsonLdParser from '@rdfjs/parser-jsonld'
 import N3Parser from '@rdfjs/parser-n3'
-import NTriplesSerializer from '@rdfjs/serializer-ntriples'
 import JsonLdSerializer from '@rdfjs/serializer-jsonld'
-import { RdfXmlParser } from 'rdfxml-streaming-parser'
+import NTriplesSerializer from '@rdfjs/serializer-ntriples'
 import { describe, it } from 'mocha'
+import { RdfXmlParser } from 'rdfxml-streaming-parser'
 import formats from '../index.js'
 
 function testMediaType (map, mediaType, name, implementation) {
