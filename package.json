@@ -1,28 +1,18 @@
 {
-  "name": "@rdf-esm/formats-common",
-  "version": "0.5.6",
+  "name": "@rdfjs/formats-common",
+  "version": "3.0.0",
   "description": "Parsers and serializers for common RDF formats",
-  "main": "index.js",
   "type": "module",
-  "exports": {
-    ".": {
-      "import": "./index.js",
-      "require": "./index.cjs"
-    }
-  },
-  "files": [
-    "*.js",
-    "*.cjs",
-    "*.d.ts"
-  ],
+  "main": "index.js",
   "scripts": {
-    "lint": "standard",
-    "test": "c8 --reporter=lcov mocha test/*.cjs",
-    "prepack": "babel *.js --out-dir . --out-file-extension .cjs"
+    "coverage": "codecov",
+    "lint": "stricter-standard",
+    "pretest": "npm run lint",
+    "test": "c8 --reporter=lcov --reporter=text mocha"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rdf-esm/formats-common.git"
+    "url": "https://github.com/rdfjs-base/formats-common.git"
   },
   "keywords": [
     "rdf",
@@ -34,31 +24,20 @@
   "author": "Thomas Bergwinkl <bergi@axolotlfarm.org> (https://www.bergnet.org/people/bergi/card#me)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rdf-esm/formats-common/issues"
+    "url": "https://github.com/rdfjs-base/formats-common/issues"
   },
-  "homepage": "https://github.com/rdf-esm/formats-common",
+  "homepage": "https://github.com/rdfjs-base/formats-common",
   "dependencies": {
-    "@rdf-esm/sink-map": "^0.5.5",
-    "@rdfjs/parser-jsonld": "^1.2.2",
-    "@rdfjs/parser-n3": "^1.1.4",
-    "@rdfjs/serializer-jsonld": "^1.2.3",
-    "@rdfjs/serializer-ntriples": "^1.0.3",
-    "rdfxml-streaming-parser": "^1.5.0"
+    "@rdfjs/parser-jsonld": "^2.0.0",
+    "@rdfjs/parser-n3": "^2.0.0",
+    "@rdfjs/serializer-jsonld": "^2.0.0",
+    "@rdfjs/serializer-ntriples": "^2.0.0",
+    "@rdfjs/sink-map": "^2.0.0",
+    "rdfxml-streaming-parser": "^2.2.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17.0",
-    "@babel/core": "^7.17.2",
-    "@babel/preset-env": "^7.16.11",
-    "@types/rdf-js": "^3.0.1",
-    "babel-plugin-add-import-extension": "^1.6.0",
-    "mocha": "^9.2.0",
-    "c8": "^7.11.0",
-    "standard": "^16.0.4"
-  },
-  "engines": {
-    "node": ">=12"
-  },
-  "publishConfig": {
-    "access": "public"
+    "c8": "^7.12.0",
+    "mocha": "^10.0.0",
+    "stricter-standard": "^0.2.0"
   }
 }

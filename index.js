@@ -1,3 +1,4 @@
+import SinkMap from '@rdfjs/sink-map'
 import {
   jsonLdParser,
   n3Parser,
@@ -7,24 +8,28 @@ import {
   jsonLdSerializer,
   nTriplesSerializer
 } from './serializers.js'
-import { SinkMap } from '@rdf-esm/sink-map'
 
-const parserMap = new SinkMap()
-const serializerMap = new SinkMap()
+const parsers = new SinkMap()
+const serializers = new SinkMap()
 
-parserMap.set('application/ld+json', jsonLdParser)
-parserMap.set('application/trig', n3Parser)
-parserMap.set('application/n-quads', n3Parser)
-parserMap.set('application/n-triples', n3Parser)
-parserMap.set('text/n3', n3Parser)
-parserMap.set('text/turtle', n3Parser)
-parserMap.set('application/rdf+xml', rdfXmlParser)
+const formats = {
+  parsers,
+  serializers
+}
 
-serializerMap.set('application/ld+json', jsonLdSerializer)
-serializerMap.set('application/n-quads', nTriplesSerializer)
-serializerMap.set('application/n-triples', nTriplesSerializer)
-serializerMap.set('text/n3', nTriplesSerializer)
-serializerMap.set('text/turtle', nTriplesSerializer)
+formats.parsers.set('application/ld+json', jsonLdParser)
+formats.parsers.set('application/trig', n3Parser)
+formats.parsers.set('application/n-quads', n3Parser)
+formats.parsers.set('application/n-triples', n3Parser)
+formats.parsers.set('text/n3', n3Parser)
+formats.parsers.set('text/turtle', n3Parser)
+formats.parsers.set('application/rdf+xml', rdfXmlParser)
 
-export const parsers = parserMap
-export const serializers = serializerMap
+formats.serializers.set('application/ld+json', jsonLdSerializer)
+formats.serializers.set('application/n-quads', nTriplesSerializer)
+formats.serializers.set('application/n-triples', nTriplesSerializer)
+formats.serializers.set('text/n3', nTriplesSerializer)
+formats.serializers.set('text/turtle', nTriplesSerializer)
+
+export { parsers, serializers }
+export default formats
