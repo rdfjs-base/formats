@@ -1,9 +1,9 @@
-const JsonLdParser = require('@rdfjs/parser-jsonld')
-const N3Parser = require('@rdfjs/parser-n3')
-const NTriplesSerializer = require('@rdfjs/serializer-ntriples')
-const SinkMap = require('@rdfjs/sink-map')
-const JsonLdSerializer = require('./lib/CustomJsonLdSerializer.js')
-const RdfXmlParser = require('./lib/CustomRdfXmlParser.js')
+import JsonLdParser from '@rdfjs/parser-jsonld'
+import N3Parser from '@rdfjs/parser-n3'
+import NTriplesSerializer from '@rdfjs/serializer-ntriples'
+import SinkMap from '@rdfjs/sink-map'
+import JsonLdSerializer from './lib/CustomJsonLdSerializer.js'
+import RdfXmlParser from './lib/CustomRdfXmlParser.js'
 
 const formats = {
   parsers: new SinkMap(),
@@ -24,4 +24,11 @@ formats.serializers.set('application/n-triples', new NTriplesSerializer())
 formats.serializers.set('text/n3', new NTriplesSerializer())
 formats.serializers.set('text/turtle', new NTriplesSerializer())
 
-module.exports = formats
+export default formats
+export {
+  JsonLdParser,
+  JsonLdSerializer,
+  N3Parser,
+  NTriplesSerializer,
+  RdfXmlParser
+}

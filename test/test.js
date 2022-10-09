@@ -1,11 +1,12 @@
-const { strictEqual } = require('assert')
-const JsonLdParser = require('@rdfjs/parser-jsonld')
-const N3Parser = require('@rdfjs/parser-n3')
-const NTriplesSerializer = require('@rdfjs/serializer-ntriples')
-const { describe, it } = require('mocha')
-const formats = require('../index.js')
-const JsonLdSerializer = require('../lib/CustomJsonLdSerializer')
-const RdfXmlParser = require('../lib/CustomRdfXmlParser')
+import { strictEqual } from 'assert'
+import JsonLdParser from '@rdfjs/parser-jsonld'
+import N3Parser from '@rdfjs/parser-n3'
+import NTriplesSerializer from '@rdfjs/serializer-ntriples'
+import { describe, it } from 'mocha'
+import formats from '../index.js'
+import * as all from '../index.js'
+import JsonLdSerializer from '../lib/CustomJsonLdSerializer.js'
+import RdfXmlParser from '../lib/CustomRdfXmlParser.js'
 
 function testMediaType (map, mediaType, name, implementation) {
   describe(mediaType, () => {
@@ -20,6 +21,28 @@ function testMediaType (map, mediaType, name, implementation) {
 }
 
 describe('@rdfjs/formats-common', () => {
+  describe('exports', () => {
+    it('should export the JsonLdParser', () => {
+      strictEqual(all.JsonLdParser, JsonLdParser)
+    })
+
+    it('should export the JsonLdSerializer', () => {
+      strictEqual(all.JsonLdSerializer, JsonLdSerializer)
+    })
+
+    it('should export the N3Parser', () => {
+      strictEqual(all.N3Parser, N3Parser)
+    })
+
+    it('should export the NTriplesSerializer', () => {
+      strictEqual(all.NTriplesSerializer, NTriplesSerializer)
+    })
+
+    it('should export the RdfXmlParser', () => {
+      strictEqual(all.RdfXmlParser, RdfXmlParser)
+    })
+  })
+
   describe('parsers', () => {
     it('should implement the Map interface', () => {
       strictEqual(typeof formats.parsers.get, 'function')
