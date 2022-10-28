@@ -2,6 +2,7 @@ import { strictEqual } from 'assert'
 import JsonLdParser from '@rdfjs/parser-jsonld'
 import N3Parser from '@rdfjs/parser-n3'
 import NTriplesSerializer from '@rdfjs/serializer-ntriples'
+import SinkMap from '@rdfjs/sink-map'
 import { describe, it } from 'mocha'
 import formats from '../index.js'
 import * as all from '../index.js'
@@ -22,6 +23,16 @@ function testMediaType (map, mediaType, name, implementation) {
 
 describe('@rdfjs/formats-common', () => {
   describe('exports', () => {
+    it('should export all parsers as SinkMap', () => {
+      strictEqual(all.parsers instanceof SinkMap, true)
+      strictEqual(all.parsers.size, 7)
+    })
+
+    it('should export all serializers as SinkMap', () => {
+      strictEqual(all.serializers instanceof SinkMap, true)
+      strictEqual(all.serializers.size, 5)
+    })
+
     it('should export the JsonLdParser', () => {
       strictEqual(all.JsonLdParser, JsonLdParser)
     })
