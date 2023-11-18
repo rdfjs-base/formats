@@ -1,38 +1,42 @@
 import JsonLdParser from '@rdfjs/parser-jsonld'
 import N3Parser from '@rdfjs/parser-n3'
 import NTriplesSerializer from '@rdfjs/serializer-ntriples'
+import TurtleSerializer from '@rdfjs/serializer-turtle'
 import SinkMap from '@rdfjs/sink-map'
-import JsonLdSerializer from './lib/CustomJsonLdSerializer.js'
-import RdfXmlParser from './lib/CustomRdfXmlParser.js'
+import JsonLdSerializer from './lib/JsonLdSerializer.js'
+import PrettyJsonLdSerializer from './lib/PrettyJsonLdSerializer.js'
+import RdfXmlParser from './lib/RdfXmlParser.js'
 
-const parsers = new SinkMap()
-const serializers = new SinkMap()
+const parsers = new SinkMap([
+  ['application/ld+json', new JsonLdParser()],
+  ['application/trig', new N3Parser()],
+  ['application/n-quads', new N3Parser()],
+  ['application/n-triples', new N3Parser()],
+  ['text/n3', new N3Parser()],
+  ['text/turtle', new N3Parser()],
+  ['application/rdf+xml', new RdfXmlParser()]
+])
+
+const serializers = new SinkMap([
+  ['application/ld+json', new JsonLdSerializer()],
+  ['application/n-quads', new NTriplesSerializer()],
+  ['application/n-triples', new NTriplesSerializer()],
+  ['text/n3', new NTriplesSerializer()],
+  ['text/turtle', new NTriplesSerializer()]
+])
 
 const formats = {
   parsers,
   serializers
 }
 
-formats.parsers.set('application/ld+json', new JsonLdParser())
-formats.parsers.set('application/trig', new N3Parser())
-formats.parsers.set('application/n-quads', new N3Parser())
-formats.parsers.set('application/n-triples', new N3Parser())
-formats.parsers.set('text/n3', new N3Parser())
-formats.parsers.set('text/turtle', new N3Parser())
-formats.parsers.set('application/rdf+xml', new RdfXmlParser())
-
-formats.serializers.set('application/ld+json', new JsonLdSerializer())
-formats.serializers.set('application/n-quads', new NTriplesSerializer())
-formats.serializers.set('application/n-triples', new NTriplesSerializer())
-formats.serializers.set('text/n3', new NTriplesSerializer())
-formats.serializers.set('text/turtle', new NTriplesSerializer())
-
-export { parsers, serializers }
-export default formats
 export {
+  formats as default,
   JsonLdParser,
   JsonLdSerializer,
   N3Parser,
   NTriplesSerializer,
-  RdfXmlParser
+  PrettyJsonLdSerializer,
+  RdfXmlParser,
+  TurtleSerializer
 }
