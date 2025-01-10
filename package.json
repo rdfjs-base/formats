@@ -32,7 +32,7 @@
     "@rdfjs/serializer-ntriples": "^2.0.0",
     "@rdfjs/serializer-turtle": "^1.1.1",
     "@rdfjs/sink-map": "^2.0.0",
-    "rdfxml-streaming-parser": "^2.3.0"
+    "rdfxml-streaming-parser": "^3.0.1"
   },
   "devDependencies": {
     "@rdfjs/environment": "^1.0.0",
